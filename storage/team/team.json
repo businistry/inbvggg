@@ -1,0 +1,526 @@
+{
+    "env": {
+        "desc": "",
+        "roles": {
+            "Product Manager": {
+                "name": "Alice",
+                "profile": "Product Manager",
+                "goal": "efficiently create a successful product that meets market demands and user expectations",
+                "constraints": "utilize the same language as the user requirements for seamless communication",
+                "desc": "",
+                "is_human": false,
+                "role_id": "",
+                "states": [
+                    "1. PrepareDocuments",
+                    "2. WritePRD"
+                ],
+                "actions": [
+                    {
+                        "name": "PrepareDocuments",
+                        "i_context": null,
+                        "prefix": "You are a Product Manager, named Alice, your goal is efficiently create a successful product that meets market demands and user expectations. the constraint is utilize the same language as the user requirements for seamless communication. ",
+                        "desc": "",
+                        "__module_class_name": "metagpt.actions.prepare_documents.PrepareDocuments"
+                    },
+                    {
+                        "name": "WritePRD",
+                        "i_context": "",
+                        "prefix": "You are a Product Manager, named Alice, your goal is efficiently create a successful product that meets market demands and user expectations. the constraint is utilize the same language as the user requirements for seamless communication. ",
+                        "desc": "",
+                        "__module_class_name": "metagpt.actions.write_prd.WritePRD"
+                    }
+                ],
+                "rc": {
+                    "memory": {
+                        "storage": [
+                            {
+                                "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                "content": "create a inventory tracking app designed for hotel managers",
+                                "instruct_content": null,
+                                "role": "Human",
+                                "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                "sent_from": "",
+                                "send_to": [
+                                    "<all>"
+                                ]
+                            }
+                        ],
+                        "index": {
+                            "metagpt.actions.add_requirement.UserRequirement": [
+                                {
+                                    "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                    "content": "create a inventory tracking app designed for hotel managers",
+                                    "instruct_content": null,
+                                    "role": "Human",
+                                    "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                    "sent_from": "",
+                                    "send_to": [
+                                        "<all>"
+                                    ]
+                                }
+                            ],
+                            "metagpt.actions.prepare_documents.PrepareDocuments": []
+                        },
+                        "ignore_id": false
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "state": 1,
+                    "watch": [
+                        "metagpt.actions.prepare_documents.PrepareDocuments",
+                        "metagpt.actions.add_requirement.UserRequirement"
+                    ],
+                    "react_mode": "react",
+                    "max_react_loop": 1
+                },
+                "addresses": [
+                    "metagpt.roles.product_manager.ProductManager",
+                    "Alice"
+                ],
+                "planner": {
+                    "plan": {
+                        "goal": "",
+                        "context": "",
+                        "tasks": [],
+                        "task_map": {},
+                        "current_task_id": ""
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "auto_run": false,
+                    "use_tools": false
+                },
+                "recovered": false,
+                "latest_observed_msg": {
+                    "id": "4b108d16ad4d41228a11118b0a1a2fe5",
+                    "content": "create a inventory tracking app designed for hotel managers",
+                    "instruct_content": {
+                        "class": "Document",
+                        "module": "metagpt.schema",
+                        "value": {
+                            "root_path": "docs",
+                            "filename": "requirement.txt",
+                            "content": "create a inventory tracking app designed for hotel managers"
+                        }
+                    },
+                    "role": "Alice(Product Manager)",
+                    "cause_by": "metagpt.actions.prepare_documents.PrepareDocuments",
+                    "sent_from": "metagpt.roles.product_manager.ProductManager",
+                    "send_to": [
+                        "<all>"
+                    ]
+                },
+                "todo_action": "WritePRD",
+                "__module_class_name": "metagpt.roles.product_manager.ProductManager"
+            },
+            "Architect": {
+                "name": "Bob",
+                "profile": "Architect",
+                "goal": "design a concise, usable, complete software system",
+                "constraints": "make sure the architecture is simple enough and use  appropriate open source libraries. Use same language as user requirement",
+                "desc": "",
+                "is_human": false,
+                "role_id": "",
+                "states": [
+                    "1. WriteDesign"
+                ],
+                "actions": [
+                    {
+                        "name": "WriteDesign",
+                        "i_context": null,
+                        "prefix": "You are a Architect, named Bob, your goal is design a concise, usable, complete software system. the constraint is make sure the architecture is simple enough and use  appropriate open source libraries. Use same language as user requirement. ",
+                        "desc": "Based on the PRD, think about the system design, and design the corresponding APIs, data structures, library tables, processes, and paths. Please provide your design, feedback clearly and in detail.",
+                        "__module_class_name": "metagpt.actions.design_api.WriteDesign"
+                    }
+                ],
+                "rc": {
+                    "memory": {
+                        "storage": [
+                            {
+                                "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                "content": "create a inventory tracking app designed for hotel managers",
+                                "instruct_content": null,
+                                "role": "Human",
+                                "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                "sent_from": "",
+                                "send_to": [
+                                    "<all>"
+                                ]
+                            },
+                            {
+                                "id": "4b108d16ad4d41228a11118b0a1a2fe5",
+                                "content": "create a inventory tracking app designed for hotel managers",
+                                "instruct_content": {
+                                    "class": "Document",
+                                    "module": "metagpt.schema",
+                                    "value": {
+                                        "root_path": "docs",
+                                        "filename": "requirement.txt",
+                                        "content": "create a inventory tracking app designed for hotel managers"
+                                    }
+                                },
+                                "role": "Alice(Product Manager)",
+                                "cause_by": "metagpt.actions.prepare_documents.PrepareDocuments",
+                                "sent_from": "metagpt.roles.product_manager.ProductManager",
+                                "send_to": [
+                                    "<all>"
+                                ]
+                            }
+                        ],
+                        "index": {
+                            "metagpt.actions.add_requirement.UserRequirement": [
+                                {
+                                    "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                    "content": "create a inventory tracking app designed for hotel managers",
+                                    "instruct_content": null,
+                                    "role": "Human",
+                                    "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                    "sent_from": "",
+                                    "send_to": [
+                                        "<all>"
+                                    ]
+                                }
+                            ],
+                            "metagpt.actions.prepare_documents.PrepareDocuments": [
+                                {
+                                    "id": "4b108d16ad4d41228a11118b0a1a2fe5",
+                                    "content": "create a inventory tracking app designed for hotel managers",
+                                    "instruct_content": {
+                                        "class": "Document",
+                                        "module": "metagpt.schema",
+                                        "value": {
+                                            "root_path": "docs",
+                                            "filename": "requirement.txt",
+                                            "content": "create a inventory tracking app designed for hotel managers"
+                                        }
+                                    },
+                                    "role": "Alice(Product Manager)",
+                                    "cause_by": "metagpt.actions.prepare_documents.PrepareDocuments",
+                                    "sent_from": "metagpt.roles.product_manager.ProductManager",
+                                    "send_to": [
+                                        "<all>"
+                                    ]
+                                }
+                            ]
+                        },
+                        "ignore_id": false
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "state": -1,
+                    "watch": [
+                        "metagpt.actions.write_prd.WritePRD"
+                    ],
+                    "react_mode": "react",
+                    "max_react_loop": 1
+                },
+                "addresses": [
+                    "metagpt.roles.architect.Architect",
+                    "Bob"
+                ],
+                "planner": {
+                    "plan": {
+                        "goal": "",
+                        "context": "",
+                        "tasks": [],
+                        "task_map": {},
+                        "current_task_id": ""
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "auto_run": false,
+                    "use_tools": false
+                },
+                "recovered": false,
+                "latest_observed_msg": null,
+                "__module_class_name": "metagpt.roles.architect.Architect"
+            },
+            "Project Manager": {
+                "name": "Eve",
+                "profile": "Project Manager",
+                "goal": "break down tasks according to PRD/technical design, generate a task list, and analyze task dependencies to start with the prerequisite modules",
+                "constraints": "use same language as user requirement",
+                "desc": "",
+                "is_human": false,
+                "role_id": "",
+                "states": [
+                    "1. WriteTasks"
+                ],
+                "actions": [
+                    {
+                        "name": "WriteTasks",
+                        "i_context": null,
+                        "prefix": "You are a Project Manager, named Eve, your goal is break down tasks according to PRD/technical design, generate a task list, and analyze task dependencies to start with the prerequisite modules. the constraint is use same language as user requirement. ",
+                        "desc": "",
+                        "__module_class_name": "metagpt.actions.project_management.WriteTasks"
+                    }
+                ],
+                "rc": {
+                    "memory": {
+                        "storage": [
+                            {
+                                "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                "content": "create a inventory tracking app designed for hotel managers",
+                                "instruct_content": null,
+                                "role": "Human",
+                                "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                "sent_from": "",
+                                "send_to": [
+                                    "<all>"
+                                ]
+                            },
+                            {
+                                "id": "4b108d16ad4d41228a11118b0a1a2fe5",
+                                "content": "create a inventory tracking app designed for hotel managers",
+                                "instruct_content": {
+                                    "class": "Document",
+                                    "module": "metagpt.schema",
+                                    "value": {
+                                        "root_path": "docs",
+                                        "filename": "requirement.txt",
+                                        "content": "create a inventory tracking app designed for hotel managers"
+                                    }
+                                },
+                                "role": "Alice(Product Manager)",
+                                "cause_by": "metagpt.actions.prepare_documents.PrepareDocuments",
+                                "sent_from": "metagpt.roles.product_manager.ProductManager",
+                                "send_to": [
+                                    "<all>"
+                                ]
+                            }
+                        ],
+                        "index": {
+                            "metagpt.actions.add_requirement.UserRequirement": [
+                                {
+                                    "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                    "content": "create a inventory tracking app designed for hotel managers",
+                                    "instruct_content": null,
+                                    "role": "Human",
+                                    "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                    "sent_from": "",
+                                    "send_to": [
+                                        "<all>"
+                                    ]
+                                }
+                            ],
+                            "metagpt.actions.prepare_documents.PrepareDocuments": [
+                                {
+                                    "id": "4b108d16ad4d41228a11118b0a1a2fe5",
+                                    "content": "create a inventory tracking app designed for hotel managers",
+                                    "instruct_content": {
+                                        "class": "Document",
+                                        "module": "metagpt.schema",
+                                        "value": {
+                                            "root_path": "docs",
+                                            "filename": "requirement.txt",
+                                            "content": "create a inventory tracking app designed for hotel managers"
+                                        }
+                                    },
+                                    "role": "Alice(Product Manager)",
+                                    "cause_by": "metagpt.actions.prepare_documents.PrepareDocuments",
+                                    "sent_from": "metagpt.roles.product_manager.ProductManager",
+                                    "send_to": [
+                                        "<all>"
+                                    ]
+                                }
+                            ]
+                        },
+                        "ignore_id": false
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "state": -1,
+                    "watch": [
+                        "metagpt.actions.design_api.WriteDesign"
+                    ],
+                    "react_mode": "react",
+                    "max_react_loop": 1
+                },
+                "addresses": [
+                    "metagpt.roles.project_manager.ProjectManager",
+                    "Eve"
+                ],
+                "planner": {
+                    "plan": {
+                        "goal": "",
+                        "context": "",
+                        "tasks": [],
+                        "task_map": {},
+                        "current_task_id": ""
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "auto_run": false,
+                    "use_tools": false
+                },
+                "recovered": false,
+                "latest_observed_msg": null,
+                "__module_class_name": "metagpt.roles.project_manager.ProjectManager"
+            },
+            "Engineer": {
+                "name": "Alex",
+                "profile": "Engineer",
+                "goal": "write elegant, readable, extensible, efficient code",
+                "constraints": "the code should conform to standards like google-style and be modular and maintainable. Use same language as user requirement",
+                "desc": "",
+                "is_human": false,
+                "role_id": "",
+                "states": [
+                    "1. WriteCode"
+                ],
+                "actions": [
+                    {
+                        "name": "WriteCode",
+                        "i_context": {
+                            "root_path": "",
+                            "filename": "",
+                            "content": ""
+                        },
+                        "prefix": "You are a Engineer, named Alex, your goal is write elegant, readable, extensible, efficient code. the constraint is the code should conform to standards like google-style and be modular and maintainable. Use same language as user requirement. ",
+                        "desc": "",
+                        "__module_class_name": "metagpt.actions.write_code.WriteCode"
+                    }
+                ],
+                "rc": {
+                    "memory": {
+                        "storage": [
+                            {
+                                "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                "content": "create a inventory tracking app designed for hotel managers",
+                                "instruct_content": null,
+                                "role": "Human",
+                                "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                "sent_from": "",
+                                "send_to": [
+                                    "<all>"
+                                ]
+                            },
+                            {
+                                "id": "4b108d16ad4d41228a11118b0a1a2fe5",
+                                "content": "create a inventory tracking app designed for hotel managers",
+                                "instruct_content": {
+                                    "class": "Document",
+                                    "module": "metagpt.schema",
+                                    "value": {
+                                        "root_path": "docs",
+                                        "filename": "requirement.txt",
+                                        "content": "create a inventory tracking app designed for hotel managers"
+                                    }
+                                },
+                                "role": "Alice(Product Manager)",
+                                "cause_by": "metagpt.actions.prepare_documents.PrepareDocuments",
+                                "sent_from": "metagpt.roles.product_manager.ProductManager",
+                                "send_to": [
+                                    "<all>"
+                                ]
+                            }
+                        ],
+                        "index": {
+                            "metagpt.actions.add_requirement.UserRequirement": [
+                                {
+                                    "id": "1cf89c7aa9404552a16ee8f879bfb457",
+                                    "content": "create a inventory tracking app designed for hotel managers",
+                                    "instruct_content": null,
+                                    "role": "Human",
+                                    "cause_by": "metagpt.actions.add_requirement.UserRequirement",
+                                    "sent_from": "",
+                                    "send_to": [
+                                        "<all>"
+                                    ]
+                                }
+                            ],
+                            "metagpt.actions.prepare_documents.PrepareDocuments": [
+                                {
+                                    "id": "4b108d16ad4d41228a11118b0a1a2fe5",
+                                    "content": "create a inventory tracking app designed for hotel managers",
+                                    "instruct_content": {
+                                        "class": "Document",
+                                        "module": "metagpt.schema",
+                                        "value": {
+                                            "root_path": "docs",
+                                            "filename": "requirement.txt",
+                                            "content": "create a inventory tracking app designed for hotel managers"
+                                        }
+                                    },
+                                    "role": "Alice(Product Manager)",
+                                    "cause_by": "metagpt.actions.prepare_documents.PrepareDocuments",
+                                    "sent_from": "metagpt.roles.product_manager.ProductManager",
+                                    "send_to": [
+                                        "<all>"
+                                    ]
+                                }
+                            ]
+                        },
+                        "ignore_id": false
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "state": -1,
+                    "watch": [
+                        "metagpt.actions.fix_bug.FixBug",
+                        "metagpt.actions.summarize_code.SummarizeCode",
+                        "metagpt.actions.project_management.WriteTasks",
+                        "metagpt.actions.write_code_plan_and_change_an.WriteCodePlanAndChange",
+                        "metagpt.actions.write_code.WriteCode",
+                        "metagpt.actions.write_code_review.WriteCodeReview"
+                    ],
+                    "react_mode": "react",
+                    "max_react_loop": 1
+                },
+                "addresses": [
+                    "Alex",
+                    "metagpt.roles.engineer.Engineer"
+                ],
+                "planner": {
+                    "plan": {
+                        "goal": "",
+                        "context": "",
+                        "tasks": [],
+                        "task_map": {},
+                        "current_task_id": ""
+                    },
+                    "working_memory": {
+                        "storage": [],
+                        "index": {},
+                        "ignore_id": false
+                    },
+                    "auto_run": false,
+                    "use_tools": false
+                },
+                "recovered": false,
+                "latest_observed_msg": null,
+                "n_borg": 5,
+                "use_code_review": true,
+                "code_todos": [],
+                "summarize_todos": [],
+                "next_todo_action": "WriteCode",
+                "n_summarize": 0,
+                "__module_class_name": "metagpt.roles.engineer.Engineer"
+            }
+        },
+        "history": "\nHuman: create a inventory tracking app designed for hotel managers\nAlice(Product Manager): {'root_path': 'docs', 'filename': 'requirement.txt', 'content': 'create a inventory tracking app designed for hotel managers'}"
+    },
+    "investment": 3.0,
+    "idea": "create a inventory tracking app designed for hotel managers"
+}

@@ -1,0 +1,16 @@
+
+sequenceDiagram
+    participant A as Application
+    participant IM as InventoryManager
+    participant I as Item
+    participant RG as ReportGenerator
+    A->>IM: add_item(Item)
+    IM->>I: add_item()
+    A->>IM: remove_item(int id)
+    IM->>I: remove_item()
+    A->>IM: update_item(int id, Item data)
+    IM->>I: update_item()
+    A->>IM: get_low_stock_items()
+    IM-->>A: return List[Item]
+    A->>RG: generate_report(List[Item])
+    RG-->>A: return report

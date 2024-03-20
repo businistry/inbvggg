@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Inventory Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('manage_items') }}">Manage Items</a></li>
+            <li><a href="{{ url_for('generate_report') }}">Reports</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        <!-- Content will be injected here by other templates extending base.html -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2023 Hotel Inventory Management System</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+
+classDiagram
+    class Application {
+        +Flask app
+        +SQLAlchemy db
+    }
+    class Item {
+        -int id
+        -String name
+        -int quantity
+        -float price
+        +add_item()
+        +remove_item()
+        +update_item()
+    }
+    class InventoryManager {
+        +List[Item] items
+        +add_item(Item item)
+        +remove_item(int id)
+        +update_item(int id, Item data)
+        +get_low_stock_items() List[Item]
+    }
+    class ReportGenerator {
+        +generate_report(List[Item] items)
+    }
+    Application --> Item
+    Application --> InventoryManager
+    InventoryManager --> Item
+    ReportGenerator --> Item

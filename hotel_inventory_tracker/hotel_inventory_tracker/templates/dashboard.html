@@ -1,0 +1,96 @@
+## templates/dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+            socket.on('update_inventory', function(data) {
+                // Implementing the logic to update the inventory list in the DOM
+                const lowStockList = document.getElementById('lowStockItems');
+                const inventoryList = document.getElementById('inventoryItems');
+                // Clear current lists
+                lowStockList.innerHTML = '';
+                inventoryList.innerHTML = '';
+                
+                data.lowStockItems.forEach(item => {
+                    const row = `<tr>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                    </tr>`;
+                    lowStockList.innerHTML += row;
+                });
+
+                data.inventoryItems.forEach(item => {
+                    const row = `<tr>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                    </tr>`;
+                    inventoryList.innerHTML += row;
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Inventory Dashboard</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('manage_items') }}">Manage Items</a></li>
+                <li><a href="{{ url_for('generate_report') }}">Generate Report</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section>
+                <h2>Low Stock Items</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lowStockItems">
+                        <!-- Items will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2>Inventory Overview</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryItems">
+                        <!-- Items will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2023 Inventory Management System</p>
+        </footer>
+    </div>
+</body>
+</html>
